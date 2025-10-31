@@ -67,36 +67,36 @@ if($method == 'GET') {
     -->
     <h1>Add A Meal</h1>
     <form name="meal_form" action="./new_meal.php" method="POST" enctype="multipart/form-data" onsubmit="return verify(this)">
-        <div class="container">
+        <div class="container justify-content-center">
             <div class="row">
                 <div class="col-sm">
                     <label for="meal_name">Meal Name:</label>
                 </div>
-                <div class="col-sm">
+                <div class="col-xl">
                     <input type="text" name="meal_name" id="meal_name">
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm"">
                     <label for="meal_pic">Meal Picture:</label>
                 </div>
-                <div class="col-sm">
+                <div class="col-xl">
                     <input type="file" accept="image/*" name="meal_pic" id="meal_pic">
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm"">
                     <label for="meal_date">Last Served On:</label>
                 </div>
-                <div class="col-sm">
+                <div class="col-xl">
                     <input type="date" name="meal_date" id="meal_date">
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm"">
                     <label for="rating">Your Rating:</label>
                 </div>
-                <div class="col-sm">
+                <div class="col-xl">
                     <div class="star-rating animated-stars">
                         <input type="radio" id="star5" name="rating" value="5">
                         <label for="star5" class="bi bi-star-fill"></label>
@@ -113,7 +113,7 @@ if($method == 'GET') {
             </div>
 
             <div class="row">
-                <div class="col-sm">
+                <div class="col-sm"">
                     <input type="submit" value="Add Meal">
                 </div>
             </div>

@@ -2,11 +2,11 @@ h1 {
 	color: blue;
 }
 
-
 .star-rating {
 	direction: rtl;
 	display: inline-block;
 	cursor: pointer;
+	user-select: none;
 }
 
 .star-rating input {
