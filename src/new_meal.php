@@ -77,7 +77,7 @@ if($method == 'GET') {
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm"">
+                <div class="col-sm">
                     <label for="meal_pic">Meal Picture:</label>
                 </div>
                 <div class="col-xl">
@@ -85,7 +85,7 @@ if($method == 'GET') {
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm"">
+                <div class="col-sm">
                     <label for="meal_date">Last Served On:</label>
                 </div>
                 <div class="col-xl">
@@ -93,7 +93,7 @@ if($method == 'GET') {
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm"">
+                <div class="col-sm">
                     <label for="rating">Your Rating:</label>
                 </div>
                 <div class="col-xl">
@@ -113,7 +113,7 @@ if($method == 'GET') {
             </div>
 
             <div class="row">
-                <div class="col-sm"">
+                <div class="col-sm">
                     <input type="submit" value="Add Meal">
                 </div>
             </div>
