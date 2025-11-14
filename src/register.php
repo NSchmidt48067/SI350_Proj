@@ -45,4 +45,6 @@
     fwrite($f, "\n");
     fflush($f);
     fclose($f);
+
+    header("Location: https://midn.cs.usna.edu/~m265646/src/login.html");
 ?>
