@@ -35,8 +35,11 @@
     // Store email and password
     $f = fopen("LOG.txt", 'a');
     $email = str_replace(array("\n", "\r", "\r\n"), '', trim($_POST['email']));
+    $username = str_replace(array("\n", "\r", "\r\n"), '', trim($_POST['username']));
     $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
     fwrite($f, $email);
+    fwrite($f, "\t");
+    fwrite($f, $username);
     fwrite($f, "\t");
     fwrite($f, $password);
     fwrite($f, "\n");
