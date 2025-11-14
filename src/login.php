@@ -33,7 +33,7 @@
     }
     session_start();
     $_SESSION['email'] = $_POST['email'];
-    $_SESSION['loggedin'] = true
+    $_SESSION['loggedin'] = true;
     echo $_SESSION['email'];
     session_unset();
     //header("Location: https://midn.cs.usna.edu/~m265646/SI350/Lab07/requestReport.php");
