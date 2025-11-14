@@ -1,3 +1,7 @@
+body {
+	min-height: 100vh;
+}
+
 h1 {
 	color: blue;
 }
@@ -25,4 +29,13 @@ h1 {
 .star-rating label:hover~label,
 .star-rating input:checked~label {
 	color: #ffc107;
+}
+
+/*  */
+.meal-display {
+	margin-top: 25vh;
+}
+
+.carousel-item {
+	display: flex;
 }

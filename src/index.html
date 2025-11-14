@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rate My Meal -- Homepage</title>
+    <!-- Bootstrap css/js links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- below is the link to the bootstrap icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+  </head>
+
+  <body>
+    <!-- NAV bar that resembles George's graphic design -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <!-- Left side of nav bar -->
+      <ul class="navbar-nav"> 
+        <!-- more options button: no functionality currently -->
+        <button type="button" class="btn">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+        </button>
+        <!-- Search button: no functionality currently -->
+        <button type="button" class="btn">
+          <i class="bi bi-search"></i>
+        </button> 
+      </ul>
+      <!-- Center/Title of nav bar -->
+      <a class="navbar-brand mx-auto" href="index.html">Rate My Meal</a>
+      <!-- Right Side of nav bar -->
+      <ul class="navbar-nav">
+        <!--  -->
+        <a href="">
+          <button type="button" class="btn">
+            <i class="bi bi-list"></i>
+          </button>
+        </a>
+        <!-- profile/login button -->
+        <a href="login.html">
+          <button type="button" class="btn">
+            <i class="bi bi-person-circle"></i>
+          </button> 
+        </a>  
+    </nav>
+
+    <!-- Use AJAX and PHP script to dynamically load meal cards -->
+    <div class="container" id="card-container">
+      <!-- <script type="module" src="loadIndex.js"></script> -->
+      <script>
+        $meal_array = [];
+        // function that pulls data from files and then turns them into bootstrap cards
+        // that users can interact with.
+        function buildCards() {
+          const xhttp = new XMLHttpRequest();
+          xhttp.onload = function() {
+            // use ajax to get meal data (which should be in JSON format) from php file
+            const data = xhttp.responseText;
+            console.log("data ", data);
+            // turn data into JSON format
+            const json_data = JSON.parse(data);
+            console.log("json_data", json_data);
+            // build cards with data
+            loadCards(json_data);
+          };   
+          
+          xhttp.open("GET", "mealdata.php");
+          xhttp.send();
+        }
+
+        // function to load all cards in index.html
+        function loadCards(meals) {
+          console.log("meals ", meals);
+          // generate rows of cards (4 cards per row)
+          var mealCards = [];
+          for(var meal of JSON.parse(meals)) {
+              console.log(meal);
+              mealCards.push(createCard(meal["name"], meal["description"], meal["imgsrc"]));
+          }
+          var innerHTML = "";
+          var i = 0;
+          for(var card of mealCards) {
+              if(i % 4 == 0) {
+                  console.log("test1: " + i);
+                  innerHTML += '<div class="row m-3">';
+              }
+              innerHTML += '<div class="col-sm-3">' + card +' </div>';
+              if(i % 4 == 3) {
+                  innerHTML += '</div>';
+              }
+              i++;
+          }
+          if(i % 4 != 3) {
+            innerHTML += '</div>';
+          }
+          var x = document.getElementById("card-container");
+          x.innerHTML += innerHTML;
+      }
+
+        // helper function to create card in loadCards()
+        function createCard(name, des, imgsrc) {
+            var cardTitle = name;
+            var cardDes = des;
+            var cardImg = imgsrc;
+            var altImg = "https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png";
+
+            var card = `
+                <div class="card w-20">
+                    <img src="${altImg}" class="card-img-top" alt="image reference not found">
+                    <div class="card-body">
+                        <h5 class="card-title">${cardTitle}</h5>
+                        <p class="card-text">${cardDes}</p>
+                    </div>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item">comment1</li>
+                        <li class="list-group-item">comment2</li>
+                        <li class="list-group-item">comment3</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Leave a Comment</a>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        buildCards();
+      </script>
+    </div>
+  </body>
+</html>
