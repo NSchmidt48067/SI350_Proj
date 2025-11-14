@@ -20,11 +20,11 @@
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
       <!-- Left side of nav bar -->
       <ul class="navbar-nav"> 
-        <!-- more options button: no functionality currently -->
+        <!-- more options button: TODO: add something for it... -->
         <button type="button" class="btn">
           <i class="bi bi-grid-3x3-gap-fill"></i>
         </button>
-        <!-- Search button: no functionality currently -->
+        <!-- Search button: TODO: add search functionality -->
         <button type="button" class="btn">
           <i class="bi bi-search"></i>
         </button> 
@@ -33,16 +33,19 @@
       <a class="navbar-brand mx-auto" href="index.html">Rate My Meal</a>
       <!-- Right Side of nav bar -->
       <ul class="navbar-nav">
-        <!-- Dropdown Menu: options to add meal and ... -->
+        <!-- Dropdown button -->
         <div class="btn-group">
           <button type="button" class="btn dropdown-toggle" id="dropDownMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
             <i class="bi bi-list"></i>
           </button>
-          <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropDownMenu">
-            <a href="#"><button type="button" class="dropdown-item" type="button">Add Meal</button></a>
-            <a href="#"><button class="dropdown-item" type="button">Another action</button></a>
-            <a href="#"><button class="dropdown-item" type="button">Something else here</button></a>
-          </div>
+          <!-- Dropdown Menu: options to add meal and ... -->
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropDownMenu">
+            <li><a class="dropdown-item" href="#">Suggest Meal</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">TODO</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">TODO</a></li>
+          </ul>
         </div>
         <!-- profile/login button -->
         <a href="login.html">
