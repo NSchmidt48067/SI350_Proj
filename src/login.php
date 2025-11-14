@@ -37,5 +37,8 @@
     $_SESSION['email'] = $email;
     $_SESSION['username'] = $fileUsername;
     $_SESSION['loggedin'] = true;
-    header("Location: https://midn.cs.usna.edu/~m265646/src");
+    header("Location: .");
+    # Add if statement for admin privelages
+
+    setcookie("username", $fileUsername, time() + (86400 * 30), "/");
 ?>

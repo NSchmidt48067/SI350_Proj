@@ -46,5 +46,5 @@
     fflush($f);
     fclose($f);
 
-    header("Location: https://midn.cs.usna.edu/~m265646/src/login.html");
+    header("Location: ./login.html");
 ?>
