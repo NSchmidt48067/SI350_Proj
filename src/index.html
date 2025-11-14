@@ -91,7 +91,7 @@
           var mealCards = [];
           for(var meal of JSON.parse(meals)) {
               console.log(meal);
-              mealCards.push(createCard(meal["name"], meal["description"], meal["imgsrc"], ['comment1', 'comment2', 'comment3']));
+              mealCards.push(createCard(meal["name"], meal["description"], meal["imgsrc"], ['comment1', 'comment2', 'comment3', 'comment4', 'comment5', 'comment6', 'comment7', 'comment8', 'comment9', 'comment10', 'comment11', 'comment12']));
           }
           var innerHTML = "";
           var i = 0;
@@ -133,13 +133,18 @@
                     </div>
                         <ul class="list-group list-group-flush">
                           ${
-                            comments.map( comment => {
+                            comments.filter((comment, idx) => { return idx < 3; })
+                            .map( comment => {
                               return `<li class="list-group-item">${comment}</li>`;
                             }).join('\n')
                           }
+                          ${
+                            comments.length > 3 ? `<li class="list-group-item">${comments.length - 3} More...</li>` 
+                                                : ""
+                          }
                       </ul>
                     <div class="card-body">
-                        <p onclick="comment_create" class="card-link">Leave a Comment</p>
+                        <a onclick="comment_create" class="card-link">Leave a Comment</a>
                     </div>
                 </div>
             `;
