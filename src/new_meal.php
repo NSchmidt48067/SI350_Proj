@@ -8,6 +8,7 @@ $_SESSION['loggedIn'] = true;
 
 if($_SESSION['loggedIn']) {
     // echo 'Logged in';
+    require('./db/meals.php');
 } else {
     // echo 'Not logged in';
     exit;
@@ -29,7 +30,27 @@ if ($method == 'POST') {
         // could cause errors, should check them
         file_put_contents($path, $contents);
 
-        // echo "<img src=\"$path\">";
+        /**
+         * Need to save 
+         * {
+         *  name: "",
+         *  description: "",
+         *  imgsrc: "",
+         * 
+         * ( [meal_name] => denali [meal_date] => 2025-11-13 [rating] => 5 ) 
+         * }
+         * 
+         * into the JSON object in mealdata
+         */
+
+        $name = $_POST['meal_name'];
+        $date = $_POST['meal_date'];
+        $rating = $_POST['rating'];
+        $desc = $_POST['description'];
+
+        meal_save($name, $desc, $path, $date, $rating);
+
+        header('Location: index.html');
     }
 
     exit;
@@ -55,7 +76,7 @@ if($method == 'GET') {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/styles.css">
     <script src="verify.js"></script>
 </head>
 <body>
@@ -74,6 +95,14 @@ if($method == 'GET') {
                 </div>
                 <div class="col-xl">
                     <input type="text" name="meal_name" id="meal_name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm">
+                    <label for="description">Meal Description:</label>
+                </div>
+                <div class="col-xl">
+                    <textarea name="description" id="description">Description of the meal...</textarea>
                 </div>
             </div>
             <div class="row">

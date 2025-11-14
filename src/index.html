@@ -12,7 +12,7 @@
     <!-- jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <!-- custom stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
   </head>
 
   <body>
@@ -67,7 +67,7 @@
             loadCards(json_data);
           };   
           
-          xhttp.open("GET", "mealdata.php");
+          xhttp.open("GET", "db/mealdata.php");
           xhttp.send();
         }
 
@@ -109,7 +109,7 @@
 
             var card = `
                 <div class="card w-20">
-                    <img src="${altImg}" class="card-img-top" alt="image reference not found">
+                    <img src="${cardImg}" class="card-img-top" alt="image reference not found">
                     <div class="card-body">
                         <h5 class="card-title">${cardTitle}</h5>
                         <p class="card-text">${cardDes}</p>
