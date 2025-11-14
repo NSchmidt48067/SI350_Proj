@@ -39,3 +39,9 @@ h1 {
 .carousel-item {
 	display: flex;
 }
+
+.f-bottom-right {
+	position: fixed;
+	bottom: 2em;
+	right: 2em;
+}

@@ -3,12 +3,14 @@
         // read the data
         $data = meal_read();
         // add the new meal
+        echo gettype($data);
         $data[] = [
             'name' => $name, 
             'description' => $desc,
             'imgsrc' => $imgpath,
             'dateServed' => $dateServed,
             'rating' => $rating,
+            'id' => count($data),
         ];
         // write the data
         meal_write($data);

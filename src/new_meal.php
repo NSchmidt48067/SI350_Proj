@@ -86,14 +86,46 @@ if($method == 'GET') {
     - Picture for the meal
     - Date it was last served on
     -->
-    <h1>Add A Meal</h1>
+    <!-- NAV bar that resembles George's graphic design -->
+    <!-- taken from Tristen's code in index.html // recommend making this an include somewhere -->
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+      <!-- Left side of nav bar -->
+      <ul class="navbar-nav"> 
+        <!-- more options button: no functionality currently -->
+        <button type="button" class="btn">
+          <i class="bi bi-grid-3x3-gap-fill"></i>
+        </button>
+        <!-- Search button: no functionality currently -->
+        <button type="button" class="btn">
+          <i class="bi bi-search"></i>
+        </button> 
+      </ul>
+      <!-- Center/Title of nav bar -->
+      <a class="navbar-brand mx-auto" href="index.html">Rate My Meal</a>
+      <!-- Right Side of nav bar -->
+      <ul class="navbar-nav">
+        <!--  -->
+        <a href="">
+          <button type="button" class="btn">
+            <i class="bi bi-list"></i>
+          </button>
+        </a>
+        <!-- profile/login button -->
+        <a href="login.html">
+          <button type="button" class="btn">
+            <i class="bi bi-person-circle"></i>
+          </button> 
+        </a>  
+    </nav>
+
+    <h1 class="text-center">Add A Meal</h1>
     <form name="meal_form" action="./new_meal.php" method="POST" enctype="multipart/form-data" onsubmit="return verify(this)">
         <div class="container justify-content-center">
             <div class="row">
                 <div class="col-sm">
                     <label for="meal_name">Meal Name:</label>
                 </div>
-                <div class="col-xl">
+                <div class="col-sm">
                     <input type="text" name="meal_name" id="meal_name">
                 </div>
             </div>
@@ -101,7 +133,7 @@ if($method == 'GET') {
                 <div class="col-sm">
                     <label for="description">Meal Description:</label>
                 </div>
-                <div class="col-xl">
+                <div class="col-sm">
                     <textarea name="description" id="description">Description of the meal...</textarea>
                 </div>
             </div>
@@ -109,7 +141,7 @@ if($method == 'GET') {
                 <div class="col-sm">
                     <label for="meal_pic">Meal Picture:</label>
                 </div>
-                <div class="col-xl">
+                <div class="col-sm">
                     <input type="file" accept="image/*" name="meal_pic" id="meal_pic">
                 </div>
             </div>
@@ -117,7 +149,7 @@ if($method == 'GET') {
                 <div class="col-sm">
                     <label for="meal_date">Last Served On:</label>
                 </div>
-                <div class="col-xl">
+                <div class="col-sm">
                     <input type="date" name="meal_date" id="meal_date">
                 </div>
             </div>
@@ -125,7 +157,7 @@ if($method == 'GET') {
                 <div class="col-sm">
                     <label for="rating">Your Rating:</label>
                 </div>
-                <div class="col-xl">
+                <div class="col-sm">
                     <div class="star-rating animated-stars">
                         <input type="radio" id="star5" name="rating" value="5">
                         <label for="star5" class="bi bi-star-fill"></label>

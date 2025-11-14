@@ -54,6 +54,10 @@
         $meal_array = [];
         // function that pulls data from files and then turns them into bootstrap cards
         // that users can interact with.
+        function comment_load(id) {
+          // make query to backend 
+        }
+
         function buildCards() {
           const xhttp = new XMLHttpRequest();
           xhttp.onload = function() {
@@ -78,7 +82,7 @@
           var mealCards = [];
           for(var meal of JSON.parse(meals)) {
               console.log(meal);
-              mealCards.push(createCard(meal["name"], meal["description"], meal["imgsrc"]));
+              mealCards.push(createCard(meal["name"], meal["description"], meal["imgsrc"], ['comment1', 'comment2', 'comment3']));
           }
           var innerHTML = "";
           var i = 0;
@@ -100,8 +104,12 @@
           x.innerHTML += innerHTML;
       }
 
+        function comment_create() {
+          // make post to backend
+        }
+
         // helper function to create card in loadCards()
-        function createCard(name, des, imgsrc) {
+        function createCard(name, des, imgsrc, comments) {
             var cardTitle = name;
             var cardDes = des;
             var cardImg = imgsrc;
@@ -115,12 +123,14 @@
                         <p class="card-text">${cardDes}</p>
                     </div>
                         <ul class="list-group list-group-flush">
-                        <li class="list-group-item">comment1</li>
-                        <li class="list-group-item">comment2</li>
-                        <li class="list-group-item">comment3</li>
-                    </ul>
+                          ${
+                            comments.map( comment => {
+                              return `<li class="list-group-item">${comment}</li>`;
+                            }).join('\n')
+                          }
+                      </ul>
                     <div class="card-body">
-                        <a href="#" class="card-link">Leave a Comment</a>
+                        <p onclick="comment_create" class="card-link">Leave a Comment</p>
                     </div>
                 </div>
             `;
@@ -131,5 +141,20 @@
         buildCards();
       </script>
     </div>
+
+
+    <i id='add_meal' class="bi bi-plus-square-fill f-bottom-right btn btn-success">
+      <script>
+        $('#add_meal').mouseover(function () {
+          $(this).text('   Add a meal');
+        }).mouseout(function () {
+          $(this).text('');
+        }).click(function () {
+          window.location = './new_meal.php';
+        });
+      </script>
+    </i>
+
+
   </body>
 </html>
