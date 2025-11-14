@@ -51,9 +51,12 @@
         <div class="container">
             <h2 class="text-center">Register with your email and password</h2>
             <form class="form-group" method="post" action="register.php">
-                <label for="username">Email:</label>
+                <label for="email">Email:</label>
                 <input class="form-control" type="text" name="email" size="30" id="email" 
-                placeholder="mXXXXXX@usna.edu" required>
+                placeholder="mXXXXXX@usna.edu" pattern="[A-Za-z0-9]*@usna\.edu" required>
+                <label for="username"> Username: </label>
+                <input class="form-control" type="text" name="username" size="30" id="username"
+                    maxlength="40" pattern="\S+" required>
                 <label for="password">Password:</label>
                 <input class="form-control" type="password" name="password" size="30" id="password" required>
                 Already have an account? <a href="login.html" class="button">Login</a>
@@ -61,8 +64,25 @@
                 <br>
                 <button type="submit" class="btn btn-primary btn-lg">Register</button>
             </form>
-            
-            
         </div>
     </body>
 </html>
+
+
+<script>
+    document.getElementById("username").addEventListener("input", function () {
+        if (this.validity.patternMismatch) {
+            this.setCustomValidity("Spaces are not allowed. Please remove any whitespace.");
+        } else {
+            this.setCustomValidity("");
+        }
+    });
+
+    document.getElementById("email").addEventListener("input", function () {
+        if (this.validity.patternMismatch) {
+            this.setCustomValidity("Email must have an '@usna.edu' domain.");
+        } else {
+            this.setCustomValidity("");
+        }
+    });
+</script>

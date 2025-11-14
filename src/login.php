@@ -1,6 +1,7 @@
 <?php
 
     $email  = trim($_POST['email']);
+    $username = "";
     $pass   = $_POST['password'];
     $login  = false;
 
@@ -8,12 +9,13 @@
         $lines = file('LOG.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
         foreach ($lines as $line) {
-            // split into two parts max (username and hash)
-            $parts = explode("\t", $line, 2);
-            if (count($parts) < 2) continue;
+            // split into 3 parts max (email and username and hash)
+            $parts = explode("\t", $line, 3);
+            if (count($parts) < 3) continue;
 
             $fileEmail = trim($parts[0]);
-            $fileHash  = trim($parts[1]);
+            $fileUsername = trim($parts[1]);
+            $fileHash  = trim($parts[2]);
 
             // match email
             if ($email === $fileEmail) {
@@ -32,9 +34,8 @@
         exit;
     }
     session_start();
-    $_SESSION['email'] = $_POST['email'];
+    $_SESSION['email'] = $email;
+    $_SESSION['username'] = $fileUsername;
     $_SESSION['loggedin'] = true;
-    echo $_SESSION['email'];
-    session_unset();
-    //header("Location: https://midn.cs.usna.edu/~m265646/SI350/Lab07/requestReport.php");
+    header("Location: https://midn.cs.usna.edu/~m265646/src");
 ?>
