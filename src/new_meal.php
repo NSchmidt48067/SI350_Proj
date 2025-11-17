@@ -77,7 +77,7 @@ if($method == 'GET') {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.13.1/font/bootstrap-icons.min.css" integrity="sha512-t7Few9xlddEmgd3oKZQahkNI4dS6l80+eGEzFQiqtyVYdvcSG2D3Iub77R20BdotfRPA9caaRkg1tyaJiPmO0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link rel="stylesheet" href="css/styles.css">
-    <script src="verify.js"></script>
+    <script src="js/verify.js"></script>
 </head>
 <body>
     <!-- 
@@ -182,7 +182,7 @@ if($method == 'GET') {
     </form>
 
     <!-- star rating system -->
-    <script src="stars.js"></script>
+    <script src="js/stars.js"></script>
 
 </body>
 </html>
