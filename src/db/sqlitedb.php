@@ -82,7 +82,11 @@ function insert($db, $table, $colValPairs) {
         $stmt->bindValue(":$col", $val['val'], $val['type']);
     }
 
-    $stmt->execute();
+    $result = $stmt->execute();
+
+    if(!$result) {
+        return json_encode(['error' => $db->lastErrorMsg()]);
+    }
 }
 
 ?>

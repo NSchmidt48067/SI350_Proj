@@ -80,25 +80,34 @@ function comment_create(id, comment, username) {
 	// make post to backend
 	fetch('db/comments.php', {
 		method: 'POST',
-		body: {
+		headers: {
+			'Content-Type': 'application/json',
+		},
+		body: JSON.stringify({
 			mealid: id,
 			comment: comment,
 			username: username,
-		},
+		}),
 	})
 		.then((resp) => {
-			resp.text().then((txt) => console.log(`Server response: ${txt}`));
 			return resp.json();
 		})
 		.then((json) => console.log(json))
 		.catch((error) => {
 			console.error(error);
 		});
+
+	resetCards();
 }
 
-function comment_form_open(ev) {
-	let el = ev.target;
+function resetCards() {
+	// get the comment
+	$('.card').remove();
 
+	buildCards();
+}
+
+function comment_form_open(id) {
 	let comment = prompt('Please enter your comments on this meal:');
 	console.log('comment', comment);
 	if (!comment) {
@@ -108,7 +117,7 @@ function comment_form_open(ev) {
 
 	let username = 'test_user_99'; // need to get this somewhere else
 
-	comment_create(el.id, comment, username);
+	comment_create(id, comment, username);
 }
 
 // helper function to create card in loadCards()
@@ -120,7 +129,7 @@ function createCard(id, name, des, imgsrc, comments) {
 		'https://upload.wikimedia.org/wikipedia/commons/a/a3/Image-not-found.png';
 	console.log('comments', comments);
 	var card = `
-        <div class="card w-20">
+        <div id="${id}" class="card w-20">
             <img src="${cardImg}" class="card-img-top" alt="image reference not found">
             <div class="card-body">
                 <h5 class="card-title">${cardTitle}</h5>
@@ -144,7 +153,7 @@ function createCard(id, name, des, imgsrc, comments) {
 										}
                 </ul>
             <div class="card-body">
-                <a onclick="comment_form_open(event)" class="card-link" id="${id}">Leave a Comment</a>
+                <a onclick="comment_form_open(${id})" class="card-link">Leave a Comment</a>
             </div>
         </div>
     `;

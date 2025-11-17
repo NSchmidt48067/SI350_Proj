@@ -1,11 +1,11 @@
 <?php
     require('sqlitedb.php');
     
-    function convertPost() {
+    function convertPost($obj) {
         return [
-            'mealid' => ['val' => intval($_POST['mealid']), 'type' => SQLITE3_INTEGER], 
-            'comment' => ['val' => $_POST['comment'], 'type' => SQLITE3_TEXT], 
-            'username' => ['val' => $_POST['username'], 'type' => SQLITE3_TEXT],
+            'mealid' => ['val' => intval($obj['mealid']), 'type' => SQLITE3_INTEGER], 
+            'comment' => ['val' => $obj['comment'], 'type' => SQLITE3_TEXT], 
+            'username' => ['val' => $obj['username'], 'type' => SQLITE3_TEXT],
         ];
     }
 
@@ -32,8 +32,10 @@
     }
     // or save them ... (post; {mealid:__, comment:__, username:__}) <-- DB will add uid
     else if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        insert($db, 'comments', convertPost());
-        echo json_encode(['message' => 'success']);
+        $data = json_decode(file_get_contents('php://input'), true);
+        $result = insert($db, 'comments', convertPost($data));
+        $result[] = json_encode(['message' => 'success']);
+        echo json_encode($result);
     }
 
     closedb($db);
