@@ -1,4 +1,5 @@
 <?php
+    // save a meal
     function meal_save($name, $desc, $imgpath, $dateServed, $rating) {
         // read the data
         $data = meal_read();
@@ -15,7 +16,7 @@
         // write the data
         meal_write($data);
     }
-
+    // read a meal from the file
     function meal_read() {
         $file = fopen('./db/mealdata.txt', 'r');
         if(!$file) {
@@ -28,7 +29,7 @@
 
         return $data;
     }
-
+    // write a meal to the file
     function meal_write($data) {
         $file = fopen('./db/mealdata.txt', 'w');
         if(!$file) {
