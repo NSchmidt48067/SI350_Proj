@@ -38,7 +38,7 @@
         </button> 
       </ul>
       <!-- Center/Title of nav bar -->
-      <a class="navbar-brand mx-auto" href="index.html">Rate My Meal</a>
+      <a class="navbar-brand mx-auto" href="index.php">Rate My Meal</a>
       <!-- Right Side of nav bar -->
       <ul class="navbar-nav">
         <!-- Dropdown button -->
