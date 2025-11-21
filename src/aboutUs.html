@@ -1,13 +1,47 @@
-<?php
-  session_start();
-?>
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rate My Meal -- Homepage</title>
+    <title>About Us</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header h1 {
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            margin: 3rem 0;
+            padding: 0 1rem;
+        }
+        .profile {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            width: 30%;
+            margin: 1rem;
+        }
+        .profile h2 {
+            font-size: 1.5rem;
+            margin: 1rem 0;
+        }
+        .profile p {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+    </style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
     <!-- Bootstrap css/js links -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
@@ -21,7 +55,7 @@
     <!-- js -->
     <!-- need to disable commenting if the user is not logged in -->
     <script src="js/loadcards.js"></script>
-  </head>
+</head>
 
   <body>
     <!-- NAV bar that resembles George's graphic design -->
@@ -64,24 +98,24 @@
       </ul>
     </nav>
 
-    <!-- Use AJAX and PHP script to dynamically load meal cards -->
-    <div class="container" id="card-container">
-      <!-- <script type="module" src="loadIndex.js"></script> -->
+    <header class="text-center my-4">
+        <h1>About Us</h1>
+    </header>
+
+    <div class="container">
+        <div class="profile">
+            <h2>Nate Schmidt</h2>
+            <p>Nate is a hockey player at the Naval Academy</p>
+        </div>
+        <div class="profile">
+            <h2>George Prielipp</h2>
+            <p>George loves sailing the open water.</p>
+        </div>
+
+        <div class="profile">
+            <h2>Tristan Alvis</h2>
+            <p>Tristan is a future Navy Pilot.</p>
+        </div>
     </div>
-
-    <!-- check if the user is logged in before displaying this -->
-    <i id='add_meal' class="bi bi-plus-square-fill f-bottom-right btn btn-success">
-      <script>
-        $('#add_meal').mouseover(function () {
-          $(this).text('   Add a meal');
-        }).mouseout(function () {
-          $(this).text('');
-        }).click(function () {
-          window.location = './new_meal.php';
-        });
-      </script>
-    </i>
-
-
-  </body>
+</body>
 </html>
