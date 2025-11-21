@@ -1,3 +1,7 @@
 m265646@usna.edu	Nate_Schmidt	$2y$10$Z/rlhZD1j/MncX9tk5qC0eH4k9wxwCvpE7/XOWvn/d3IH77ZqNway
+<<<<<<< HEAD
 rashley@usna.edu	Major_Rashley	$2y$10$co2/egoBF8lx9v1FcUZzjep7NNDYdZ1TT56IrR8MfSzwEIDhqrVh6
 m265112@usna.edu	imsocool99	$2y$10$LABt5VYk1HPgwIQMSC5s5uDqLy/9RyZeKT9lrVMCWW9BpN3vkg15y
+=======
+m260102@usna.edu	Tristen	$2y$10$n1RAAGuI9b6LCszbtXKGl.uRvzsmLh7oT9jDS8P2m4//nGGxAEVJK
+>>>>>>> fb3445d (adding search bar to nav bar in index.php)
