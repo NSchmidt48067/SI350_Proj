@@ -21,6 +21,7 @@
     <!-- js -->
     <!-- need to disable commenting if the user is not logged in -->
     <script src="js/loadcards.js"></script>
+    <script src="js/cookies.js"></script>
   </head>
 
   <body>
@@ -38,7 +39,7 @@
         </button> 
       </ul>
       <!-- Center/Title of nav bar -->
-      <a class="navbar-brand mx-auto" href="index.html">Rate My Meal</a>
+      <a class="navbar-brand mx-auto" href="index.php">Rate My Meal</a>
       <!-- Right Side of nav bar -->
       <ul class="navbar-nav">
         <!-- Dropdown button -->
@@ -70,18 +71,42 @@
     </div>
 
     <!-- check if the user is logged in before displaying this -->
-    <i id='add_meal' class="bi bi-plus-square-fill f-bottom-right btn btn-success">
-      <script>
-        $('#add_meal').mouseover(function () {
-          $(this).text('   Add a meal');
-        }).mouseout(function () {
-          $(this).text('');
-        }).click(function () {
-          window.location = './new_meal.php';
-        });
-      </script>
-    </i>
+    <?php
 
+      if(isset($_SESSION['loggedin']) && $_SESSION['loggedin']) {
+        ?>
+        <i id='add_meal' class="bi bi-plus-square-fill f-bottom-right btn btn-success">
+          <script>
+              $('#add_meal').mouseover(function () {
+                $(this).text('   Add a meal');
+              }).mouseout(function () {
+                $(this).text('');
+              }).click(function () {
+                window.location = './new_meal.php';
+              });
+
+              
+          </script>
+        </i>
+        
+        <script>
+          let intID = setInterval(() => {
+            if($('.card').length > 0) {
+              clearInterval(intID);
+              console.log('Card found');
+              
+              $(".card").append(function (idx, html) {
+                return `<div class="card-body"><a onclick="comment_form_open(${this.id})" class="card-link pointer">Leave a Comment</a></div>`;
+              });
+            } else {
+              console.log('Card not found');
+            }
+          }, 250);
+        </script>
+        <?php
+      }
+    
+    ?>
 
   </body>
 </html>

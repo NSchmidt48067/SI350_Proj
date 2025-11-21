@@ -50,7 +50,7 @@ if ($method == 'POST') {
 
         meal_save($name, $desc, $path, $date, $rating);
 
-        header('Location: index.html');
+        header('Location: index.php');
     }
 
     exit;
@@ -101,7 +101,7 @@ if($method == 'GET') {
         </button> 
       </ul>
       <!-- Center/Title of nav bar -->
-      <a class="navbar-brand mx-auto" href="index.html">Rate My Meal</a>
+      <a class="navbar-brand mx-auto" href="index.php">Rate My Meal</a>
       <!-- Right Side of nav bar -->
       <ul class="navbar-nav">
         <!--  -->

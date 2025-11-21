@@ -45,3 +45,7 @@ h1 {
 	bottom: 2em;
 	right: 2em;
 }
+
+.pointer {
+	cursor: pointer;
+}

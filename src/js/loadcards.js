@@ -102,9 +102,9 @@ function comment_create(id, comment, username) {
 
 function resetCards() {
 	// get the comment
-	$('.card').remove();
-
-	buildCards();
+	setTimeout(() => {
+		document.location.reload();
+	}, 500);
 }
 
 function comment_form_open(id) {
@@ -115,9 +115,38 @@ function comment_form_open(id) {
 		return;
 	}
 
-	let username = 'test_user_99'; // need to get this somewhere else
+	let username = getCookie('username'); // need to get this somewhere else
 
 	comment_create(id, comment, username);
+}
+
+async function expandComments(id) {
+	let comments = await comment_load(id);
+	$(`.comments-${id}`).empty().html(function() {
+		console.log(comments);
+		return comments.map((comment) => {
+							return `<li class="list-group-item pointer" onclick="collapseComments(${id})"><p>"${comment['comment']}"</p><p><em>- ${comment['username']}</em></p></li>`;
+						})
+						.join('\n');
+	});
+}
+
+async function collapseComments(id) {
+	let comments = await comment_load(id);
+	$(`.comments-${id}`).empty().html( function() {
+		console.log(comments);
+		return comments.filter((comment, idx) => {
+				return idx < 3;
+			})
+			.map((comment) => {
+				return `<li class="list-group-item"><p>"${comment['comment']}"</p><p><em>- ${comment['username']}</em></p></li>`;
+			})
+			.join('\n') + (comments.length > 3
+			? `<li class="list-group-item pointer" onclick="expandComments(${id})">${
+					comments.length - 3
+				} More...</li>`
+			: '')
+	});
 }
 
 // helper function to create card in loadCards()
@@ -135,26 +164,19 @@ function createCard(id, name, des, imgsrc, comments) {
                 <h5 class="card-title">${cardTitle}</h5>
                 <p class="card-text">${cardDes}</p>
             </div>
-                <ul class="list-group list-group-flush">
-                    ${comments
-											.filter((comment, idx) => {
-												return idx < 3;
-											})
-											.map((comment) => {
-												return `<li class="list-group-item"><p>"${comment['comment']}"</p><p><em>- ${comment['username']}</em></p></li>`;
-											})
-											.join('\n')}
-                    ${
-											comments.length > 3
-												? `<li class="list-group-item">${
-														comments.length - 3
-												  } More...</li>`
-												: ''
-										}
+                <ul class="list-group list-group-flush comments-${id}">
+                    ${comments.filter((comment, idx) => {
+				return idx < 3;
+			})
+			.map((comment) => {
+				return `<li class="list-group-item"><p>"${comment['comment']}"</p><p><em>- ${comment['username']}</em></p></li>`;
+			})
+			.join('\n') + (comments.length > 3
+			? `<li class="list-group-item pointer" onclick="expandComments(${id})">${
+					comments.length - 3
+				} More...</li>`
+			: '')}
                 </ul>
-            <div class="card-body">
-                <a onclick="comment_form_open(${id})" class="card-link">Leave a Comment</a>
-            </div>
         </div>
     `;
 
