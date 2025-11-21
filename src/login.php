@@ -37,6 +37,7 @@
     $_SESSION['email'] = $email;
     $_SESSION['username'] = $fileUsername;
     $_SESSION['loggedin'] = true;
+    $_SESSION['is_admin'] = ($email === 'm265646@usna.edu') || ($email === 'm260102@usna.edu') || ($email === 'm265112@usna.edu');
     header("Location: .");
     # Add if statement for admin privelages
 
