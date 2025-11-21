@@ -1,4 +1,5 @@
 <?php
+// Ensure Admin is Logged In
 session_start();
 if ($_SESSION['is_admin'] == false) {
     header("Location: index.php");
@@ -8,6 +9,7 @@ if ($_SESSION['is_admin'] == false) {
 
 $file = 'LOG.txt';
 
+// Read users from LOG.txt
 function readUsersFromFile($file) {
     $users = [];
     if (file_exists($file)) {
@@ -27,6 +29,7 @@ function readUsersFromFile($file) {
     return $users;
 }
 
+// Rewrite LOG.txt after deletion
 function saveUsersToFile($file, $users) {
     $fileContent = '';
     foreach ($users as $user) {
@@ -35,6 +38,7 @@ function saveUsersToFile($file, $users) {
     file_put_contents($file, $fileContent);
 }
 
+// Handle deletion request
 if (isset($_GET['delete'])) {
     $deleteIndex = (int)$_GET['delete'];
     $users = readUsersFromFile($file);
@@ -44,7 +48,7 @@ if (isset($_GET['delete'])) {
         saveUsersToFile($file, $users);
     }
 }
-
+// Load users for display
 $users = readUsersFromFile($file);
 ?>
 
@@ -94,12 +98,15 @@ $users = readUsersFromFile($file);
             </tr>
         </thead>
         <tbody>
+            <!-- Display users -->
             <?php if (count($users) > 0): ?>
                 <?php foreach ($users as $index => $user): ?>
                     <tr>
+                        <!-- User data -->
                         <td><?php echo $user['email']; ?></td>
                         <td><?php echo $user['username']; ?></td>
                         <td><?php echo $user['password']; ?></td>
+                        <!-- Delete button, makes Get request -->
                         <td><a href="?delete=<?php echo $index; ?>"><button class="button">Delete</button></a></td>
                     </tr>
                 <?php endforeach; ?>

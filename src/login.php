@@ -1,5 +1,5 @@
 <?php
-
+    // Process login form submission
     $email  = trim($_POST['email']);
     $username = "";
     $pass   = $_POST['password'];
@@ -8,6 +8,7 @@
     if (file_exists('LOG.txt')) {
         $lines = file('LOG.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
+        // Find User by email
         foreach ($lines as $line) {
             // split into 3 parts max (email and username and hash)
             $parts = explode("\t", $line, 3);
@@ -28,11 +29,12 @@
         }
     }
 
-
+    // If login fails, redirect back to login page with error
     if (!$login) {
         echo "<script>alert('Username and/or password did not match.'); window.history.back();</script>";
         exit;
     }
+    // If login succeeds, start session and set session variables
     session_start();
     $_SESSION['email'] = $email;
     $_SESSION['username'] = $fileUsername;
