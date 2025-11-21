@@ -1,3 +1,6 @@
+/**
+ * Functions given to use in the Javascript: Cookies lecture
+ */
 function getCookie(cname) {
   var name = cname + "=";
   var decodedCookie = decodeURIComponent(document.cookie);

@@ -22,6 +22,7 @@ async function comment_load(id) {
 	return res;
 }
 
+// create the cards and put them on the page
 function buildCards() {
 	const xhttp = new XMLHttpRequest();
 	xhttp.onload = function () {
@@ -56,6 +57,7 @@ async function loadCards(meals) {
 			)
 		);
 	}
+	// construct the card view
 	var innerHTML = '';
 	var i = 0;
 	for (var card of mealCards) {
@@ -101,12 +103,14 @@ function comment_create(id, comment, username) {
 }
 
 function resetCards() {
-	// get the comment
+	// reload the page to show new cards
 	setTimeout(() => {
 		document.location.reload();
 	}, 500);
 }
 
+// open the form to get comments for a meal
+// would have been cool if this was a popup form. prompt() is a good stand-in
 function comment_form_open(id) {
 	let comment = prompt('Please enter your comments on this meal:');
 	console.log('comment', comment);
@@ -120,6 +124,7 @@ function comment_form_open(id) {
 	comment_create(id, comment, username);
 }
 
+// expand the comments section
 async function expandComments(id) {
 	let comments = await comment_load(id);
 	$(`.comments-${id}`).empty().html(function() {
@@ -131,6 +136,7 @@ async function expandComments(id) {
 	});
 }
 
+// collapse the comments section
 async function collapseComments(id) {
 	let comments = await comment_load(id);
 	$(`.comments-${id}`).empty().html( function() {
@@ -183,6 +189,7 @@ function createCard(id, name, des, imgsrc, comments) {
 	return card;
 }
 
+// when the document is ready, build the Cards
 $(document).ready(() => {
 	buildCards();
 });
