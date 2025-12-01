@@ -5,6 +5,8 @@
     $pass   = $_POST['password'];
     $login  = false;
 
+    
+
     if (file_exists('LOG.txt')) {
         $lines = file('LOG.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 

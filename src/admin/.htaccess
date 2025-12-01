@@ -1,0 +1,4 @@
+AuthUserFile /home/mids/m265646/public_html/src/admin/.htpasswd
+AuthType Basic
+AuthName "admin"
+Require valid-user
