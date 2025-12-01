@@ -22,6 +22,7 @@
     <!-- need to disable commenting if the user is not logged in -->
     <script src="js/loadcards.js"></script>
     <script src="js/cookies.js"></script>
+    <script src="js/search.js"></script>
   </head>
 
   <body>
@@ -40,7 +41,7 @@
               <button class="btn" type="submit">
                 <i class="bi bi-search"></i>
               </button>
-            </form>
+          </form>
         </ul>
       </div>
       <!-- Center/Title of nav bar -->
