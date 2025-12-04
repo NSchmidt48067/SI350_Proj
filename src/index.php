@@ -61,8 +61,6 @@
               <li><a class="dropdown-item" href="new_meal.php">Suggest Meal</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="aboutUs.html">About Us</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">TODO</a></li>
             </ul>
           </div>
           <!-- profile/login button -->
