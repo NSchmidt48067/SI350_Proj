@@ -1,3 +1,9 @@
+/**
+ * Description: js functions that assist with generating meal cards to display on the website
+ * Creation Date: 17NOV2025
+ * Author: Tristen Alvis, George Prielipp
+ */
+
 // function that pulls data from files and then turns them into bootstrap cards
 // that users can interact with.
 async function comment_load(id) {

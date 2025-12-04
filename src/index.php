@@ -1,3 +1,10 @@
+<!-- 
+Description: homepage for the website. Displays all the meals on the website. Users can search for specific meals
+Creation Date: 27OCT2025
+Last Modified: 03DEC2025
+Author: George Prielipp, Nate Schmidt, Tristen Alvis
+-->
+
 <?php
   session_start();
 ?>

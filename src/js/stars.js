@@ -1,3 +1,9 @@
+/**
+ * Description: js functions to assist with rating meals 
+ * Creation Date: 14NOV2025
+ * Author: George Prielipp
+ */
+
 function uncheckRadios() {
     let radios = document.querySelectorAll("input[type='radio']");
 

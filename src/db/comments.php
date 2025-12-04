@@ -1,3 +1,9 @@
+<!-- 
+Description: php code to send/receive comment data about meals
+Creation Date: 14NOV2025
+Author: George Prielipp
+-->
+
 <?php
     require('sqlitedb.php');
     

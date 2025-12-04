@@ -1,4 +1,7 @@
 /**
+ * Description: js functions to assist with cookie management for website
+ * Creation Date: 21NOV2025
+ * Author: George Prielipp
  * Functions given to use in the Javascript: Cookies lecture
  */
 function getCookie(cname) {

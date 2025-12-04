@@ -1,3 +1,9 @@
+<!-- 
+Description: page to upload a new meal request to the website
+Creation Date: 14NOV2025
+Author: George Prielipp
+-->
+
 <!DOCTYPE html>
 
 <?php
@@ -114,8 +120,6 @@ if($method == 'GET') {
             <li><a class="dropdown-item" href="new_meal.php">Suggest Meal</a></li>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="aboutUs.html">About Us</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">TODO</a></li>
           </ul>
         </div>
         <!-- profile/login button -->

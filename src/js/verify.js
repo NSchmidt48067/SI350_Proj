@@ -1,3 +1,9 @@
+/**
+ * Description: js functions that assist with verifying user input
+ * Creation Date: 14NOV2025
+ * Author: George Prielipp
+ */
+
 function any(lst, func) {
     let res = false;
     lst.forEach(element => {

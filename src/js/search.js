@@ -1,3 +1,9 @@
+/**
+ * Description: JS functions to assist with search functionality on the main page
+ * Creation Date: 01DEC2025
+ * Author: George Prielipp
+ */
+
 var globalCards;
 
 function search(query, cards) {
