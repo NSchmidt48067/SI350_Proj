@@ -1,3 +1,9 @@
+<!-- 
+Description: php code to manage an sqllite database to store data for the website
+Creation Date: 17NOV2025
+Author: George Prielipp
+-->
+
 <?php
 
 // internal check to see if the database is open

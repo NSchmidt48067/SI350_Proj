@@ -1,3 +1,9 @@
+<!-- 
+Description: registration page for the website
+Creation Date: 31OCT2025
+Author: Nate Schmidt, Tristen Alvis
+-->
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -34,11 +40,17 @@
             <!-- Right Side of nav bar -->
             <ul class="navbar-nav">
             <!--  -->
-            <a href="">
-            <button type="button" class="btn">
+            <div class="btn-group">
+              <button type="button" class="btn" id="dropDownMenu" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> 
                 <i class="bi bi-list"></i>
-            </button>
-            </a>
+              </button>
+              <!-- Dropdown Menu: options to add meal and ... -->
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropDownMenu">
+                <li><a class="dropdown-item" href="new_meal.php">Suggest Meal</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="aboutUs.html">About Us</a></li>
+              </ul>
+            </div>
             <!-- profile/login button -->
             <a href="login.html">
             <button type="button" class="btn">

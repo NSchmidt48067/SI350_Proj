@@ -1,3 +1,9 @@
+<!-- 
+Description: php code for the admin page. Help's verify users trying to access the admin page. 
+Creation Date: 21NOV2025
+Author: Nate Schmidt
+-->
+
 <?php
 // Ensure Admin is Logged In
 session_start();

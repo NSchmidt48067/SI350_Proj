@@ -1,3 +1,9 @@
+<!-- 
+Description: php code to register new users to the website
+Creation Date: 31OCT2025
+Author: Nate Schmidt
+-->
+
 <?php
     // Check if user already exists
     if (file_exists('LOG.txt')) {

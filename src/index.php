@@ -1,3 +1,10 @@
+<!-- 
+Description: homepage for the website. Displays all the meals on the website. Users can search for specific meals
+Creation Date: 27OCT2025
+Last Modified: 03DEC2025
+Author: George Prielipp, Nate Schmidt, Tristen Alvis
+-->
+
 <?php
   session_start();
 ?>
@@ -61,8 +68,6 @@
               <li><a class="dropdown-item" href="new_meal.php">Suggest Meal</a></li>
               <li><hr class="dropdown-divider"></li>
               <li><a class="dropdown-item" href="aboutUs.html">About Us</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">TODO</a></li>
             </ul>
           </div>
           <!-- profile/login button -->

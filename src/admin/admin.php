@@ -1,3 +1,10 @@
+<!-- 
+Description: This is the admin page for our website. Only preapproved 
+accounts may access this site. 
+Creation Date: 21NOV2025
+Author: Nate Schmidt 
+-->
+
 <?php
 // Ensure Admin is Logged In
 session_start();
@@ -5,7 +12,6 @@ if ($_SESSION['is_admin'] == false) {
     header("Location: ../index.php");
     exit;
 }
-
 
 $file = '../LOG.txt';
 

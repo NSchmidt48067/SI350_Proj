@@ -1,3 +1,9 @@
+<!-- 
+Description: php code to provide user authentication on login
+Creation Date: 31OCT2025
+Author: Nate Schmidt
+-->
+
 <?php
     // Process login form submission
     $email  = trim($_POST['email']);

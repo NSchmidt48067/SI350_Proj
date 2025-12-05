@@ -1,3 +1,9 @@
+<!-- 
+Description: php functions to retrieve meal data from mealdata.txt file
+Creation Date: 14NOV2025
+Author: George Prielipp
+-->
+
 <?php
     // save a meal
     function meal_save($name, $desc, $imgpath, $dateServed, $rating) {
